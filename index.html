@@ -5,119 +5,484 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>賀一麟傳奇人物傳</title>
+    <title>浣熊原創世界</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
-            font-family: "Microsoft JhengHei", sans-serif;
-            background-color: #f5f1e8;
-            color: #333;
+            font-family:
+                "Noto Sans TC",
+                "Microsoft JhengHei",
+                sans-serif;
+
+            background: #f5f3ef;
+            color: #2d2d2d;
         }
 
-        header {
-            background-color: #25211d;
-            color: white;
-            text-align: center;
-            padding: 80px 20px;
-        }
-
-        header h1 {
-            font-size: 40px;
-            margin-bottom: 10px;
-        }
-
-        header p {
-            color: #d8d0c4;
-        }
-
+        /* 頂部導覽列 */
         nav {
-            background-color: #ffffff;
-            text-align: center;
-            padding: 20px;
+            background: rgba(255,255,255,0.95);
             border-bottom: 1px solid #ddd;
+            padding: 18px 30px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 2px;
         }
 
         nav a {
             color: #333;
             text-decoration: none;
-            margin: 0 20px;
+            margin-left: 25px;
         }
 
         nav a:hover {
-            color: #9b3a32;
+            color: #8b3f37;
         }
 
+        /* 首頁主視覺 */
+        .hero {
+            min-height: 500px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #292723,
+                    #514b43
+                );
+
+            color: white;
+
+            padding: 80px 20px;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            margin: 0 0 15px 0;
+            letter-spacing: 5px;
+        }
+
+        .hero .english {
+            letter-spacing: 5px;
+            color: #cfc9c0;
+            font-size: 14px;
+        }
+
+        .hero p {
+            margin-top: 35px;
+            color: #dedbd4;
+            line-height: 2;
+        }
+
+        /* 主要內容 */
         main {
+            max-width: 1200px;
+            margin: auto;
+            padding: 80px 30px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #777;
+        }
+
+        /* 世界觀卡片 */
+        .world-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(230px, 1fr));
+
+            gap: 25px;
+        }
+
+        .world-card {
+            background: white;
+            min-height: 260px;
+            padding: 35px 28px;
+
+            border-radius: 12px;
+
+            text-decoration: none;
+            color: #333;
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,0.06);
+
+            transition:
+                transform 0.25s,
+                box-shadow 0.25s;
+        }
+
+        .world-card:hover {
+            transform: translateY(-7px);
+
+            box-shadow:
+                0 12px 30px rgba(0,0,0,0.12);
+        }
+
+        .category {
+            font-size: 12px;
+            color: #9a756d;
+            letter-spacing: 2px;
+        }
+
+        .world-card h3 {
+            font-size: 24px;
+            margin: 18px 0;
+        }
+
+        .world-card p {
+            color: #666;
+            line-height: 1.8;
+            font-size: 14px;
+        }
+
+        .more {
+            display: inline-block;
+            margin-top: 18px;
+
+            color: #8b3f37;
+            font-size: 14px;
+        }
+
+        /* 文學創作 */
+        .works {
+            margin-top: 100px;
+        }
+
+        .work-card {
             max-width: 900px;
-            margin: 60px auto;
-            padding: 0 30px;
+            margin: auto;
+
+            background: #282520;
+            color: white;
+
+            padding: 50px;
+
+            border-radius: 14px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .work-card h3 {
+            font-size: 30px;
+            margin: 10px 0 20px;
+        }
+
+        .work-card p {
+            color: #d5d0c8;
             line-height: 1.9;
         }
 
-        section {
-            margin-bottom: 60px;
+        .work-card a {
+            color: white;
+            border: 1px solid #aaa;
+
+            padding: 12px 22px;
+            text-decoration: none;
+
+            white-space: nowrap;
         }
 
-        footer {
-            background-color: #25211d;
-            color: #aaa;
-            text-align: center;
-            padding: 30px;
+        .work-card a:hover {
+            background: white;
+            color: #333;
         }
+
+        /* 頁尾 */
+        footer {
+            margin-top: 100px;
+
+            background: #211f1c;
+            color: #999;
+
+            text-align: center;
+
+            padding: 40px 20px;
+
+            font-size: 13px;
+        }
+
+        @media (max-width: 700px) {
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .work-card {
+                display: block;
+            }
+
+            .work-card a {
+                display: inline-block;
+                margin-top: 20px;
+            }
+
+            nav .links {
+                display: none;
+            }
+        }
+
     </style>
+
 </head>
 
 <body>
 
-<header>
-    <h1>賀一麟傳奇人物傳</h1>
-    <p>一段關於天命、人與神明的故事</p>
+<nav>
+
+    <div class="logo">
+        浣熊原創世界
+    </div>
+
+    <div class="links">
+        <a href="index.html">首頁</a>
+        <a href="#world">世界設定</a>
+        <a href="#works">文學創作</a>
+    </div>
+
+</nav>
+
+
+<header class="hero">
+
+    <div>
+
+        <div class="english">
+            RACCOON ORIGINAL WORLD
+        </div>
+
+        <h1>
+            浣熊原創世界
+        </h1>
+
+        <p>
+            收錄角色、場所、組織與故事的原創世界資料庫。<br>
+            每一個世界，都有屬於自己的故事。
+        </p>
+
+    </div>
+
 </header>
 
-<nav>
-    <a href="#">首頁</a>
-    <a href="#">登場人物</a>
-    <a href="#">世界觀</a>
-    <a href="#">故事</a>
-    <a href="#">作品資訊</a>
-</nav>
 
 <main>
 
-    <section>
-        <h2>關於作品</h2>
+
+<section id="world">
+
+    <div class="section-title">
+
+        <h2>世界設定</h2>
 
         <p>
-            《賀一麟傳奇人物傳》為原創故事作品。
-            故事以賀一麟以及他身邊的人們為中心，
-            描寫少年時代、信仰、天命，以及人與神明之間的故事。
+            WORLD & ORGANIZATIONS
         </p>
-    </section>
 
-    <section>
-        <h2>賀一麟</h2>
+    </div>
+
+
+    <div class="world-grid">
+
+
+        <!-- 聖丘藝高 -->
+
+        <a class="world-card"
+           href="school.html">
+
+            <div class="category">
+                SCHOOL
+            </div>
+
+            <h3>
+                聖丘藝術高級中學
+            </h3>
+
+            <p>
+                原創世界中的藝術高中，
+                亦是多名主要角色少年時期的重要舞台。
+                詳細設定將陸續公開。
+            </p>
+
+            <span class="more">
+                查看資料 →
+            </span>
+
+        </a>
+
+
+        <!-- 祁天宮 -->
+
+        <a class="world-card"
+           href="qitiangong.html">
+
+            <div class="category">
+                TEMPLE
+            </div>
+
+            <h3>
+                祁天宮
+            </h3>
+
+            <p>
+                以關聖帝君為主神的宮廟。
+                前身為臨天亭，
+                是原創世界中極為重要的宗教場所之一。
+            </p>
+
+            <span class="more">
+                查看資料 →
+            </span>
+
+        </a>
+
+
+        <!-- 極山殿 -->
+
+        <a class="world-card"
+           href="jishandian.html">
+
+            <div class="category">
+                TEMPLE
+            </div>
+
+            <h3>
+                極山殿
+            </h3>
+
+            <p>
+                以地藏王菩薩為主神，
+                結合陰司信仰、陰陽調和、
+                鎮煞與超渡文化的宮廟。
+            </p>
+
+            <span class="more">
+                查看資料 →
+            </span>
+
+        </a>
+
+
+        <!-- XN -->
+
+        <a class="world-card"
+           href="xn.html">
+
+            <div class="category">
+                ENTERTAINMENT
+            </div>
+
+            <h3>
+                XN Entertainment
+            </h3>
+
+            <p>
+                成立於韓國的跨國娛樂公司，
+                涵蓋藝人經紀、唱片、
+                音樂製作、影視與活動管理等領域。
+            </p>
+
+            <span class="more">
+                查看資料 →
+            </span>
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+
+<section
+    class="works"
+    id="works">
+
+    <div class="section-title">
+
+        <h2>文學創作</h2>
 
         <p>
-            聖丘藝高學生，同時也是關聖帝君乩身。
-            即使仍過著普通高中生的生活，
-            身上卻背負著與常人截然不同的天命。
+            STORIES & NOVELS
         </p>
-    </section>
 
-    <section>
-        <h2>故事</h2>
+    </div>
 
-        <p>
-            第一集採倒敘形式展開，故事重新回到賀一麟等人的高中時期。
-        </p>
-    </section>
+
+    <div class="work-card">
+
+        <div>
+
+            <div class="category">
+                ORIGINAL NOVEL
+            </div>
+
+            <h3>
+                賀一麟傳奇人物傳
+            </h3>
+
+            <p>
+                以賀一麟為核心展開的原創系列作品。
+                故事涉及祁天宮、聖丘藝高、
+                天命、信仰以及不同人物之間的命運交會。
+            </p>
+
+        </div>
+
+        <a href="heyilin.html">
+            進入作品
+        </a>
+
+    </div>
+
+</section>
+
 
 </main>
 
+
 <footer>
-    © 賀一麟傳奇人物傳
+
+    RACCOON ORIGINAL WORLD
+    <br><br>
+
+    © 浣熊原創世界
+
 </footer>
+
 
 </body>
 
