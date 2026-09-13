@@ -5,105 +5,586 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>機構與場所｜賀一麟傳奇人物傳</title>
+    <title>世界設定｜浣熊原創世界</title>
 
     <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
-            font-family: "Microsoft JhengHei", sans-serif;
-            background: #f5f1e8;
-            color: #333;
+            font-family:
+                "Noto Sans TC",
+                "Microsoft JhengHei",
+                sans-serif;
+
+            background: #f5f3ef;
+            color: #2d2d2d;
         }
 
-        header {
-            background: #25211d;
-            color: white;
-            padding: 50px 20px;
-            text-align: center;
-        }
+        /* 導覽列 */
 
         nav {
-            background: white;
-            text-align: center;
-            padding: 18px;
+            background: rgba(255,255,255,0.96);
             border-bottom: 1px solid #ddd;
+
+            padding: 18px 30px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            position: sticky;
+            top: 0;
+            z-index: 10;
         }
 
-        nav a {
-            margin: 0 15px;
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .links a {
             color: #333;
             text-decoration: none;
+            margin-left: 25px;
         }
+
+        .links a:hover {
+            color: #8b3f37;
+        }
+
+
+        /* 頁首 */
+
+        header {
+            background:
+                linear-gradient(
+                    135deg,
+                    #292723,
+                    #514b43
+                );
+
+            color: white;
+            text-align: center;
+
+            padding: 90px 20px;
+        }
+
+        header h1 {
+            font-size: 42px;
+            letter-spacing: 4px;
+
+            margin: 0 0 15px 0;
+        }
+
+        header p {
+            color: #d7d2ca;
+            letter-spacing: 2px;
+        }
+
+
+        /* 主內容 */
 
         main {
-            max-width: 1000px;
-            margin: 50px auto;
-            padding: 0 25px;
+            max-width: 1150px;
+            margin: auto;
+
+            padding: 70px 30px;
         }
 
-        .place {
+        .intro {
+            max-width: 750px;
+
+            margin:
+                0 auto
+                80px auto;
+
+            text-align: center;
+
+            line-height: 2;
+            color: #666;
+        }
+
+
+        /* 分類 */
+
+        .category-section {
+            margin-bottom: 80px;
+        }
+
+        .category-title {
+            margin-bottom: 30px;
+
+            border-bottom: 1px solid #d7d2ca;
+            padding-bottom: 15px;
+        }
+
+        .category-title h2 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        .category-title span {
+            color: #999;
+            font-size: 12px;
+
+            letter-spacing: 3px;
+        }
+
+
+        /* 卡片 */
+
+        .grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(260px,1fr)
+                );
+
+            gap: 25px;
+        }
+
+        .card {
+            display: block;
+
             background: white;
-            padding: 25px;
-            margin-bottom: 25px;
-            border-radius: 10px;
-        }
 
-        .place h2 {
-            margin-top: 0;
-        }
+            border-radius: 12px;
 
-        .place a {
-            color: #8b342d;
+            padding: 32px;
+
+            min-height: 230px;
+
             text-decoration: none;
+            color: #333;
+
+            box-shadow:
+                0 5px 20px
+                rgba(0,0,0,0.06);
+
+            transition:
+                transform 0.25s,
+                box-shadow 0.25s;
         }
+
+        .card:hover {
+            transform:
+                translateY(-6px);
+
+            box-shadow:
+                0 12px 28px
+                rgba(0,0,0,0.12);
+        }
+
+        .type {
+            font-size: 11px;
+
+            letter-spacing: 2px;
+
+            color: #9b756d;
+        }
+
+        .card h3 {
+            font-size: 24px;
+
+            margin:
+                15px 0
+                14px 0;
+        }
+
+        .card p {
+            color: #666;
+
+            line-height: 1.8;
+
+            font-size: 14px;
+        }
+
+        .more {
+            display: inline-block;
+
+            margin-top: 15px;
+
+            color: #8b3f37;
+
+            font-size: 14px;
+        }
+
+
+        /* 尚未公開 */
+
+        .coming {
+            opacity: 0.75;
+        }
+
+
+        /* 頁尾 */
+
+        footer {
+            margin-top: 50px;
+
+            background: #211f1c;
+
+            color: #999;
+
+            text-align: center;
+
+            padding: 40px 20px;
+
+            font-size: 13px;
+        }
+
+
+        /* 手機 */
+
+        @media(max-width:700px) {
+
+            header h1 {
+                font-size: 34px;
+            }
+
+            nav {
+                padding:
+                    15px 20px;
+            }
+
+            .links a {
+                margin-left: 10px;
+
+                font-size: 14px;
+            }
+
+        }
+
     </style>
+
 </head>
+
 
 <body>
 
-<header>
-    <h1>機構與場所</h1>
-    <p>《賀一麟傳奇人物傳》世界觀資料</p>
-</header>
+
+<!-- 導覽列 -->
 
 <nav>
-    <a href="index.html">首頁</a>
-    <a href="institutions.html">機構與場所</a>
-    <a href="characters.html">登場人物</a>
-    <a href="story.html">故事</a>
+
+    <div class="logo">
+        浣熊原創世界
+    </div>
+
+    <div class="links">
+
+        <a href="index.html">
+            首頁
+        </a>
+
+        <a href="institutions.html">
+            世界設定
+        </a>
+
+        <a href="works.html">
+            文學創作
+        </a>
+
+    </div>
+
 </nav>
+
+
+
+<!-- 頁首 -->
+
+<header>
+
+    <h1>
+        世界設定
+    </h1>
+
+    <p>
+        WORLD ARCHIVE
+    </p>
+
+</header>
+
+
 
 <main>
 
-    <div class="place">
-        <h2>祁天宮</h2>
-        <p>
-            故事世界中的重要宮廟之一。
-        </p>
 
-        <a href="qitiangong.html">查看完整資料 →</a>
+    <div class="intro">
+
+        此處收錄「浣熊原創世界」中的主要場所、
+        宮廟、學校、企業以及各類組織設定。
+
+        不同作品與人物之間，
+        可能共享或交會於這些世界設定之中。
+
     </div>
 
-    <div class="place">
-        <h2>極山殿</h2>
-        <p>
-            與故事中的宗教、人物及事件具有重要關聯的宮廟。
-        </p>
 
-        <a href="jishandian.html">查看完整資料 →</a>
-    </div>
 
-    <div class="place">
-        <h2>聖丘藝術高級中學</h2>
-        <p>
-            賀一麟等人在少年時期就讀的學校，
-            也是故事高中篇的重要舞台。
-        </p>
+    <!-- 宮廟 -->
 
-        <a href="shengqiu.html">查看完整資料 →</a>
-    </div>
+    <section class="category-section">
+
+
+        <div class="category-title">
+
+            <span>
+                TEMPLES
+            </span>
+
+            <h2>
+                宮廟
+            </h2>
+
+        </div>
+
+
+        <div class="grid">
+
+
+            <!-- 祁天宮 -->
+
+            <a
+                class="card"
+                href="qitiangong.html"
+            >
+
+                <div class="type">
+                    TEMPLE
+                </div>
+
+                <h3>
+                    祁天宮
+                </h3>
+
+                <p>
+                    主祀關聖帝君。
+                    前身為「臨天亭」，
+                    是原創世界中重要的信仰場所，
+                    亦與多名角色及故事具有密切關聯。
+                </p>
+
+                <span class="more">
+                    查看完整資料 →
+                </span>
+
+            </a>
+
+
+
+            <!-- 極山殿 -->
+
+            <a
+                class="card"
+                href="jishandian.html"
+            >
+
+                <div class="type">
+                    TEMPLE
+                </div>
+
+                <h3>
+                    極山殿
+                </h3>
+
+                <p>
+                    主祀地藏王菩薩，
+                    結合陰司信仰、
+                    陰陽調和、鎮煞驅邪
+                    及超渡輪迴文化的宮廟。
+                </p>
+
+                <span class="more">
+                    查看完整資料 →
+                </span>
+
+            </a>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- 教育機構 -->
+
+    <section class="category-section">
+
+
+        <div class="category-title">
+
+            <span>
+                EDUCATION
+            </span>
+
+            <h2>
+                教育機構
+            </h2>
+
+        </div>
+
+
+        <div class="grid">
+
+
+            <a
+                class="card coming"
+                href="school.html"
+            >
+
+                <div class="type">
+                    SCHOOL
+                </div>
+
+                <h3>
+                    聖丘藝術高級中學
+                </h3>
+
+                <p>
+                    原創世界中的藝術高中，
+                    也是賀一麟等角色少年時期
+                    的重要故事舞台。
+
+                    詳細設定將陸續公開。
+                </p>
+
+                <span class="more">
+                    查看資料 →
+                </span>
+
+            </a>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- 娛樂產業 -->
+
+    <section class="category-section">
+
+
+        <div class="category-title">
+
+            <span>
+                ENTERTAINMENT INDUSTRY
+            </span>
+
+            <h2>
+                娛樂產業
+            </h2>
+
+        </div>
+
+
+        <div class="grid">
+
+
+            <a
+                class="card"
+                href="xn.html"
+            >
+
+                <div class="type">
+                    ENTERTAINMENT
+                </div>
+
+                <h3>
+                    XN Entertainment
+                </h3>
+
+                <p>
+                    韓國跨國娛樂公司。
+
+                    業務涵蓋藝人經紀、
+                    唱片發行、音樂製作、
+                    活動管理及影視製作等領域。
+                </p>
+
+                <span class="more">
+                    查看完整資料 →
+                </span>
+
+            </a>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- 未來新增 -->
+
+    <section class="category-section">
+
+
+        <div class="category-title">
+
+            <span>
+                MORE
+            </span>
+
+            <h2>
+                其他設定
+            </h2>
+
+        </div>
+
+
+        <div class="grid">
+
+
+            <div class="card coming">
+
+                <div class="type">
+                    COMING SOON
+                </div>
+
+                <h3>
+                    更多世界設定
+                </h3>
+
+                <p>
+                    未來新增的組織、
+                    場所、企業或其他世界設定，
+                    將會收錄於此。
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
 
 </main>
 
+
+
+<footer>
+
+    RACCOON ORIGINAL WORLD
+
+    <br><br>
+
+    © 浣熊原創世界
+
+</footer>
+
+
 </body>
+
 </html>
